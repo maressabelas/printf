@@ -38,7 +38,7 @@ int	ft_printf(const char *fmt, ...)
 	i = 0;
 	count = 0;
 	if (!fmt)
-		return (0);
+		return (-1);
 	va_start(list, fmt);
 	while (fmt[i])
 	{
