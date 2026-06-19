@@ -40,21 +40,16 @@ int	ft_puthexa(unsigned int n, char c)
 static int	ft_puthexa_long(unsigned long n)
 {
 	int	count;
-	int	aux;
 	char *base;
 
 	count = 0;
 	base = "0123456789abcdef";
 	if (n >= 16)
 	{
-		aux = ft_puthexa_long(n / 16);
-		if (aux == -1)
-			return (-1);
-		count += aux;
+		count += ft_puthexa_long(n / 16);
 	}
 	n %= 16;
-	if (write(1, &base[n], 1) == -1)
-		return (-1);
+	write(1, &base[n], 1);
 	count++;
 	return (count);
 }
@@ -62,22 +57,17 @@ static int	ft_puthexa_long(unsigned long n)
 
 int	ft_putptr(void *ptr)
 {
-	int	len;
-	int	hexlen;
+	unsigned int	len;
 
 	len = 0;
 	if (!ptr)
 	{
-		if (write(1, "(nil)", 5) == -1);
-			return (-1);
+		write(1, "(nil)", 5);
 		return (5);
 	}
 	if (ft_putstr("0x") == -1)
 		return (-1);
 	len += 2;
-	hexlen = ft_puthexa_long((unsigned long)ptr);
-	if (hexlen < 0)
-		return (-1);
-	len += hexlen;
+	len += ft_puthexa_long((unsigned long)ptr);
 	return (len);
 }
