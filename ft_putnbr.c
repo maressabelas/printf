@@ -44,8 +44,6 @@ int	ft_putnbr_unsigned(unsigned int n)
 	count = 0;
 	if (n >= 10)
 		count += ft_putnbr_unsigned(n / 10);
-	if (n == 0)
-		return (write(1, "0", 1));
 	c = (n % 10) + '0';
 	write(1, &c, 1);
 	count++;
