@@ -25,7 +25,7 @@ static int	ft_checks(va_list *list, char c)
 	if (c == 'u')
 		return (ft_putnbr_unsigned(va_arg(*list, unsigned int)));
 	if (c == 'x' || c == 'X')
-		return (ft_puthexa(va_arg(*list, unsigned int), c));
+		return (ft_puthexa(va_arg(*list, unsigned long), c));
 	return (0);
 }
 
